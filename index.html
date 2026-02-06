@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUCC - Sistema Acadêmico</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icone/icone.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Tela de Login (vai sumir após login) -->
+    <div id="loginScreen" class="login-container">
+        <div class="login-box">
+            <div class="logo-header">
+                <div class="logo-circle">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h1>Pontifícia Universidade Católica<br>de Campinas</h1>
+                <p class="subtitle">Sistema Acadêmico Digital</p>
+            </div>
+            
+            <div class="login-form">
+                <h2><i class="fas fa-sign-in-alt"></i> Acesso ao Sistema</h2>
+                
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Nome de usuário" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Senha" required>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox">
+                        <input type="checkbox" id="remember">
+                        <span>Lembrar-me</span>
+                    </label>
+                    <a href="#" class="forgot-link">Esqueceu a senha?</a>
+                </div>
+                
+                <button id="loginBtn" class="login-btn">
+                    <i class="fas fa-paper-plane"></i> Entrar no Sistema
+                </button>
+                
+                <div class="login-info">
+                    <p><strong>Usuários para teste:</strong></p>
+                    <p>Eduardo Guerreiro - Usuário: <code>Eduardo Guerreiro</code> - Senha: <code>123</code></p>
+                    <p>Ruan André - Usuário: <code>Ruan Andre</code> - Senha: <code>123</code></p>
+                </div>
+            </div>
+            
+            <div class="login-footer">
+                <p><i class="fas fa-shield-alt"></i> Sistema seguro - PUCC © 2024</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sistema Principal (aparece após login) -->
+    <div id="mainSystem" class="main-container" style="display: none;">
+        <!-- Cabeçalho -->
+        <header class="system-header">
+            <div class="header-left">
+                <div class="header-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="header-title">
+                    <h1>PUCC - Sistema Acadêmico</h1>
+                    <p>Bem-vindo, <span id="studentName">Estudante</span></p>
+                </div>
+            </div>
+            
+            <button id="logoutBtn" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Sair
+            </button>
+        </header>
+        
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <!-- Carteirinha do Estudante -->
+            <section class="card-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-id-card"></i> Carteirinha de Estudante</h2>
+                    <p class="section-subtitle">Identificação oficial PUCC</p>
+                </div>
+                
+                <div class="student-card">
+                    <div class="card-header">
+                        <div class="institution-logo">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="institution-info">
+                            <h3>Pontifícia Universidade Católica</h3>
+                            <p>de Campinas - Credenciada pelo MEC</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="student-photo">
+                            <img id="studentPhoto" src="usuarios/perfilE.jpg" alt="Foto do Estudante">
+                            <div class="photo-label">Foto</div>
+                        </div>
+                        
+                        <div class="student-info">
+                            <div class="info-row">
+                                <span class="info-label">Nome:</span>
+                                <span id="infoName" class="info-value">Eduardo Guerreiro</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Curso:</span>
+                                <span id="infoCourse" class="info-value">Medicina</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Matrícula:</span>
+                                <span id="infoMatricula" class="info-value">PUCC2024MED001</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Validade:</span>
+                                <span id="infoValidade" class="info-value">31/12/2024</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Status:</span>
+                                <span class="status-active">ATIVO</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <div class="qrcode-container">
+                            <div class="qrcode-title">
+                                <i class="fas fa-qrcode"></i> QR Code de Validação
+                            </div>
+                            <img id="studentQR" src="qrcode/qrcode-ligação.png" alt="QR Code" class="qrcode-image">
+                            <p class="qrcode-info">Aponte a câmera para validar</p>
+                        </div>
+                        
+                        <div class="card-signature">
+                            <div class="signature-line"></div>
+                            <p>Assinatura do Diretor Acadêmico</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-actions">
+                    <button id="refreshCard" class="action-btn">
+                        <i class="fas fa-sync-alt"></i> Atualizar
+                    </button>
+                    <button id="shareCard" class="action-btn">
+                        <i class="fas fa-share-alt"></i> Compartilhar
+                    </button>
+                </div>
+            </section>
+            
+            <!-- Comprovante de Matrícula -->
+            <section class="matricula-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-file-contract"></i> Comprovante de Matrícula</h2>
+                    <p class="section-subtitle">Documento oficial da PUCC</p>
+                </div>
+                
+                <div class="matricula-info">
+                    <div class="matricula-details">
+                        <div class="detail-box">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <h4>Semestre Atual</h4>
+                                <p id="currentSemester">2024.1</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-box">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Carga Horária</h4>
+                                <p id="workload">4.200 horas</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="matricula-actions">
+                        <button id="viewPdfBtn" class="matricula-btn primary-btn">
+                            <i class="fas fa-eye"></i> Visualizar Comprovante
+                        </button>
+                        <button id="downloadPdfBtn" class="matricula-btn secondary-btn">
+                            <i class="fas fa-download"></i> Baixar PDF
+                        </button>
+                    </div>
+                    
+                    <div class="pdf-info">
+                        <p><i class="fas fa-info-circle"></i> Documento gerado em: <span id="docDate">10/04/2024</span></p>
+                        <p><i class="fas fa-file-pdf"></i> Arquivo: <span id="pdfFileName">medicina.pdf</span></p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Menu Rápido -->
+            <section class="quick-menu">
+                <h2><i class="fas fa-th-large"></i> Menu Rápido</h2>
+                
+                <div class="menu-grid">
+                    <a href="#" class="menu-item">
+                        <div class="menu-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <p>Horário Aulas</p>
+                    </a>
+                    
+                    <a href="#" class="menu-item">
+                        <div class="menu-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <p>Notas</p>
+                    </a>
+                    
+                    <a href="#" class="menu-item">
+                        <div class="menu-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <p>Professores</p>
+                    </a>
+                    
+                    <a href="#" class="menu-item">
+                        <div class="menu-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <p>Ajuda</p>
+                    </a>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Rodapé -->
+        <footer class="system-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>PUCC</span>
+                </div>
+                
+                <div class="footer-info">
+                    <p>Pontifícia Universidade Católica de Campinas</p>
+                    <p>Sistema Acadêmico Digital v2.0</p>
+                    <p class="footer-copyright">© 2024 - Todos os direitos reservados</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <p><i class="fas fa-phone"></i> (19) 3343-7000</p>
+                    <p><i class="fas fa-envelope"></i> academicos@puccampinas.edu.br</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Modal para visualizar PDF -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-file-pdf"></i> Comprovante de Matrícula</h3>
+                <button id="closeModal" class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="pdf-viewer">
+                    <i class="fas fa-file-pdf pdf-icon"></i>
+                    <h4 id="modalPdfTitle">Comprovante de Matrícula - Medicina</h4>
+                    <p>Este é um documento oficial da PUCC</p>
+                    <div class="pdf-actions">
+                        <a id="pdfLink" href="matriculas/medicina.pdf" target="_blank" class="pdf-btn">
+                            <i class="fas fa-external-link-alt"></i> Abrir em nova janela
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p><i class="fas fa-shield-alt"></i> Documento assinado digitalmente</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

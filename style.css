@@ -1,0 +1,968 @@
+/* ===== RESET E CONFIGURAÇÕES GERAIS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
+    color: #333;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ===== TELA DE LOGIN ===== */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #001f3f 0%, #003366 50%, #00509e 100%);
+}
+
+.login-box {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 450px;
+    overflow: hidden;
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.logo-header {
+    background: linear-gradient(to right, #001f3f, #003366);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.logo-header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom right, transparent 49%, white 50%);
+}
+
+.logo-circle {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+.logo-circle i {
+    font-size: 40px;
+    color: #001f3f;
+}
+
+.logo-header h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.subtitle {
+    font-size: 14px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.login-form {
+    padding: 40px 30px 30px;
+}
+
+.login-form h2 {
+    color: #003366;
+    margin-bottom: 25px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-form h2 i {
+    color: #d4af37;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s;
+}
+
+.input-group:focus-within {
+    border-color: #003366;
+    box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+}
+
+.input-group i {
+    color: #6c757d;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 10px;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: #999;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+}
+
+.checkbox input {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    accent-color: #003366;
+}
+
+.forgot-link {
+    color: #003366;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.forgot-link:hover {
+    color: #d4af37;
+    text-decoration: underline;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(to right, #003366, #00509e);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+}
+
+.login-btn:hover {
+    background: linear-gradient(to right, #002244, #003366);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 51, 102, 0.4);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+.login-info {
+    margin-top: 25px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #d4af37;
+}
+
+.login-info p {
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: #555;
+}
+
+.login-info code {
+    background: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #003366;
+}
+
+.login-footer {
+    background: #f8f9fa;
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #e9ecef;
+    color: #666;
+    font-size: 13px;
+}
+
+.login-footer i {
+    color: #d4af37;
+    margin-right: 5px;
+}
+
+/* ===== SISTEMA PRINCIPAL ===== */
+.main-container {
+    display: none;
+    max-width: 500px;
+    margin: 0 auto;
+    background: #f5f7fa;
+    min-height: 100vh;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho do Sistema */
+.system-header {
+    background: linear-gradient(to right, #001f3f, #003366);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header-logo i {
+    font-size: 24px;
+    color: #001f3f;
+}
+
+.header-title h1 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.header-title p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+#studentName {
+    color: #f7ef8a;
+    font-weight: 600;
+}
+
+.logout-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Conteúdo Principal */
+.main-content {
+    padding: 20px;
+}
+
+.section-header {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.section-header h2 {
+    color: #003366;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.section-header h2 i {
+    color: #d4af37;
+}
+
+.section-subtitle {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Carteirinha do Estudante */
+.student-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.card-header {
+    background: linear-gradient(to right, #001f3f, #003366);
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.institution-logo {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.institution-logo i {
+    font-size: 24px;
+    color: #003366;
+}
+
+.institution-info h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.institution-info p {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.card-body {
+    padding: 25px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.student-photo {
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.student-photo img {
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid #e9ecef;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.photo-label {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #6c757d;
+    background: #f8f9fa;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.student-info {
+    flex-grow: 1;
+}
+
+.info-row {
+    display: flex;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #003366;
+    width: 100px;
+    flex-shrink: 0;
+    font-size: 14px;
+}
+
+.info-value {
+    color: #333;
+    flex-grow: 1;
+    font-size: 15px;
+}
+
+.status-active {
+    background: #28a745;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.card-footer {
+    background: #f8f9fa;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e9ecef;
+}
+
+.qrcode-container {
+    text-align: center;
+}
+
+.qrcode-title {
+    color: #003366;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.qrcode-image {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 5px;
+    background: white;
+}
+
+.qrcode-info {
+    font-size: 11px;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+.card-signature {
+    text-align: center;
+}
+
+.signature-line {
+    width: 150px;
+    height: 1px;
+    background: #333;
+    margin: 0 auto 5px;
+}
+
+.card-signature p {
+    font-size: 10px;
+    color: #666;
+    font-style: italic;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s;
+    color: #003366;
+}
+
+.action-btn:hover {
+    background: #f8f9fa;
+    border-color: #003366;
+    transform: translateY(-2px);
+}
+
+/* Comprovante de Matrícula */
+.matricula-info {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.matricula-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.detail-box {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-left: 4px solid #d4af37;
+}
+
+.detail-box i {
+    font-size: 24px;
+    color: #003366;
+    background: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail-box h4 {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.detail-box p {
+    font-size: 18px;
+    color: #003366;
+    font-weight: 700;
+}
+
+.matricula-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.matricula-btn {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s;
+}
+
+.primary-btn {
+    background: linear-gradient(to right, #003366, #00509e);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+}
+
+.secondary-btn {
+    background: white;
+    color: #003366;
+    border: 2px solid #003366;
+}
+
+.primary-btn:hover {
+    background: linear-gradient(to right, #002244, #003366);
+    transform: translateY(-2px);
+}
+
+.secondary-btn:hover {
+    background: #003366;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.pdf-info {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px dashed #ddd;
+}
+
+.pdf-info p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pdf-info i {
+    color: #d4af37;
+    width: 20px;
+}
+
+/* Menu Rápido */
+.quick-menu {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.quick-menu h2 {
+    color: #003366;
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.menu-item {
+    background: #f8f9fa;
+    padding: 20px 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.menu-item:hover {
+    background: white;
+    border-color: #003366;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.menu-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #003366, #00509e);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+}
+
+.menu-icon i {
+    font-size: 24px;
+    color: white;
+}
+
+.menu-item p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #003366;
+}
+
+/* Rodapé do Sistema */
+.system-footer {
+    background: #001f3f;
+    color: white;
+    padding: 25px 20px;
+    margin-top: 30px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.footer-logo i {
+    color: #d4af37;
+}
+
+.footer-info p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.footer-copyright {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.footer-contact i {
+    color: #d4af37;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+    background: linear-gradient(to right, #001f3f, #003366);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal:hover {
+    color: #f7ef8a;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.pdf-viewer {
+    text-align: center;
+}
+
+.pdf-icon {
+    font-size: 70px;
+    color: #d9534f;
+    margin-bottom: 20px;
+}
+
+.pdf-viewer h4 {
+    color: #003366;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.pdf-viewer p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.pdf-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.pdf-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #003366;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.pdf-btn:hover {
+    background: #002244;
+    transform: translateY(-2px);
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    background: #f8f9fa;
+    text-align: center;
+    border-top: 1px solid #e9ecef;
+    color: #666;
+    font-size: 14px;
+}
+
+.modal-footer i {
+    color: #d4af37;
+    margin-right: 8px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 480px) {
+    .card-body {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .info-label {
+        width: auto;
+    }
+    
+    .matricula-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .matricula-actions {
+        flex-direction: column;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-footer {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .institution-info h3 {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 380px) {
+    .login-form {
+        padding: 30px 20px 20px;
+    }
+    
+    .logo-header h1 {
+        font-size: 18px;
+    }
+    
+    .header-title h1 {
+        font-size: 16px;
+    }
+    
+    .section-header h2 {
+        font-size: 18px;
+    }
+}
